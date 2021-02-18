@@ -1,45 +1,58 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { vh } from 'react-native-expo-viewport-units';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
+import css from '../../../assets/css/Css';
 
-import Hamburguer from '../../Menu/Menu'
+import Menu from '../../components/Menu/Menu';
+import { useFonts } from 'expo-font';
 
-export default function Home({ navigation }){
-  return(
-    <View style={styles.Fundo}>
-      <TouchableOpacity style={styles.Botao} onPress={() => navigation.toggleDrawer()}>
-        <Hamburguer />
-      </TouchableOpacity>
-      <View style={styles.container}>
-        <Text style={styles.Texto}>Open up App.js to start working on your app!</Text>
-      </View>
-    </View>
-  )
+//font-family: 'Bebas Neue', cursive;
+
+export default function Home({ navigation }) {
+	const [loaded] = useFonts({
+		ubuntu: require('../../../assets/fonts/Ubuntu-Bold.ttf'),
+	});
+
+	if (!loaded) {
+		return null;
+	}
+
+	return (
+		<View style={css.Fundo}>
+
+			<View style={css.Top}>
+				<Image
+					style={css.logo}
+					source={require('../../../assets/img/LogoMovelaria.png')}
+				/>
+				<TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+					<Menu />
+				</TouchableOpacity>
+			</View>
+			
+			<View style={css.container}>
+				<Image
+					style={css.intro}
+					source={require('../../../assets/img/intro.png')}
+				/>
+				<View style={css.icons}>
+					<Image
+						style={css.icon1}
+						source={require('../../../assets/img/entrega-01.png')}
+					/>
+					<Text style={[css.Texto, { fontFamily: 'ubuntu' }]}>
+						Entrega Rápida
+					</Text>
+				</View>
+				<View style={css.icons}>
+					<Image
+						style={css.icon2}
+						source={require('../../../assets/img/garantia-01-01.png')}
+					/>
+					<Text style={[css.Texto, { fontFamily: 'ubuntu' }]}>
+						Qualidade Garantida
+					</Text>
+				</View>
+			</View>
+		</View>
+	);
 }
-//rgba(128, 128, 128, 0.596)
-
-//rgba(29, 29, 29, 0.9)
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'rgba(29, 29, 29, 0.9)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop:10,
-    height: vh(100),
-   
-  },
-  Texto:{
-    color:'#fff',
-  },
-
-  Fundo:{
-    backgroundColor: 'rgb(29, 29, 29)'
-  },
-
-  Botao:{
-    marginVertical:15,
-    marginHorizontal:15,
-    alignItems:'flex-end',
-    
-  },
-});
