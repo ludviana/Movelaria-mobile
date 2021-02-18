@@ -10,7 +10,6 @@ const Css = StyleSheet.create({
 	},
 
 	Top: {
-		display: 'flex',
 		flexDirection: 'row',
 		marginVertical: 5,
 		marginHorizontal: 15,
@@ -26,6 +25,7 @@ const Css = StyleSheet.create({
 
 	Fundo: {
 		backgroundColor: 'rgb(29, 29, 29)',
+		flex: 1,
 	},
 
 	Menu: {
@@ -34,8 +34,7 @@ const Css = StyleSheet.create({
 		marginBottom: 5,
 		position: 'relative',
 		backgroundColor: '#cb6120',
-		borderRadius: 3,
-		zIndex: 1,
+		borderRadius: 15,
 	},
 
 	containerDrawer: {
@@ -90,10 +89,37 @@ const Css = StyleSheet.create({
 		padding: 20,
 	},
 
-	ImagemProduto:{
-		width:160,
-		height:135
-	}
+	ImagemProduto: {
+		width: 160,
+		height: 135,
+		borderRadius: 15,
+	},
+	container2: {
+		backgroundColor: 'rgba(29, 29, 29, 0.9)',
+		alignItems: 'center',
+		paddingTop: 15,
+		marginVertical: 10,
+	},
+	input: {
+		fontSize: 19,
+		backgroundColor: 'rgba(999,999,999,0.3)',
+		padding: 12,
+		width: 300,
+		marginVertical: 7,
+		borderRadius: 10,
+		opacity: 0.5,
+		color: 'white',
+	},
+	Entrar: {
+		fontSize: 19,
+		backgroundColor: 'rgba(999,999,999,0.3)',
+		padding: 12,
+		width: 300,
+		marginVertical: 7,
+		borderRadius: 10,
+		opacity: 0.5,
+		color: 'white',
+	},
 });
 
 export default Css;

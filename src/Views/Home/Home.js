@@ -5,8 +5,6 @@ import css from '../../../assets/css/Css';
 import Menu from '../../components/Menu/Menu';
 import { useFonts } from 'expo-font';
 
-//font-family: 'Bebas Neue', cursive;
-
 export default function Home({ navigation }) {
 	const [loaded] = useFonts({
 		ubuntu: require('../../../assets/fonts/Ubuntu-Bold.ttf'),
@@ -18,7 +16,6 @@ export default function Home({ navigation }) {
 
 	return (
 		<View style={css.Fundo}>
-
 			<View style={css.Top}>
 				<Image
 					style={css.logo}
@@ -28,7 +25,7 @@ export default function Home({ navigation }) {
 					<Menu />
 				</TouchableOpacity>
 			</View>
-			
+
 			<View style={css.container}>
 				<Image
 					style={css.intro}
